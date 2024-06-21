@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base:'/ushaganeshdurai/form1'
+  base:'/form1/'
 })
