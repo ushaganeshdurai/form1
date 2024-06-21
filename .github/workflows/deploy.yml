@@ -24,6 +24,11 @@ jobs:
         run: |
           npm install -g pnpm
 
+      - name: Verify pnpm installation
+        run: |
+          pnpm --version  # Check if pnpm is installed and print its version
+          which pnpm      # Print the path to pnpm executable
+
       - name: Install dependencies
         run: |
           pnpm install
