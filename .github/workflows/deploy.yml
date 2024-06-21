@@ -14,16 +14,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Setup Node.js and pnpm
+        uses: actions/setup-node@v2
         with:
-          node-version: 20
-
-      - name: Install dependencies
-        uses: bahmutov/pnpm-install@v1
+          node-version: '20.12.2'  # Specify a Node.js version compatible with pnpm
+          cache: pnpm  # Enable caching for faster builds
+        run: |
+          npm install -g pnpm
+          pnpm install
 
       - name: Build project
-        run: npm run build
+        run: pnpm run build  # Use pnpm to run the build script
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
